@@ -4288,8 +4288,10 @@ public class ClientModeImpl extends StateMachine {
 
                     reportConnectionAttemptStart(config, mTargetRoamBSSID,
                             WifiMetricsProto.ConnectionEvent.ROAM_UNRELATED);
-                    if (config.macRandomizationSetting
+                    if ((config.macRandomizationSetting
                             == WifiConfiguration.RANDOMIZATION_PERSISTENT
+                            || config.macRandomizationSetting
+                            == WifiConfiguration.RANDOMIZATION_ALWAYS)
                             && mConnectedMacRandomzationSupported) {
                         configureRandomizedMacAddress(config);
                     } else {
